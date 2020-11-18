@@ -1,6 +1,15 @@
 let form = document.querySelector('#addForm');
 let itemList = document.querySelector('#items');
 let filter = document.querySelector('#filter')
+let empty = document.querySelector('#emptyList')
+//check if todoList empty
+let isEmpty = function(){
+    if(itemList.childElementCount==0){
+        empty.appendChild(document.createTextNode('There is nothing to-do. Please add something'));
+    }
+}
+isEmpty()
+    
 
 // submit event
 form.addEventListener('submit', itemAdd);
@@ -30,6 +39,7 @@ function itemAdd(e){
     //check if its empty and append li to the list
     if(newItem.length > 0){
         itemList.appendChild(li);
+        empty.remove();
     } else{
         alert('Please write something');
     }
@@ -37,7 +47,6 @@ function itemAdd(e){
 function itemRemove(e){
     if(e.target.classList.contains('delete')){
         let li = e.target.parentElement
-        console.log(li);
         itemList.removeChild(li);
     }
 }
