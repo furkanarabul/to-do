@@ -72,6 +72,7 @@ function addTodo(event){
     function checkTodo(event){
         if(event.target.classList.contains('complete-btn')){
             event.target.parentElement.classList.add('completed');
+            event.target.parentElement.style.order = todoList.children.length
         }
     }
 
