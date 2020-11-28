@@ -6,7 +6,7 @@ let headerInput = document.querySelector('.header-input');
 let darkModeButton = document.querySelector('.darkmodeBtn');
 let filterOption = document.querySelector('.filter-todo')
 let empty = document.querySelector('.empty');
-
+let body = document.body;
 //event listener
 todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click',deleteTodo);
@@ -20,7 +20,13 @@ function addTodo(event){
     event.preventDefault();
     //to-do div
     const todoDiv = document.createElement('div');
-    todoDiv.classList.add("todo");
+    if(body.classList.contains('dark-mode')){
+        todoDiv.classList.add("todo");
+        todoDiv.classList.add("darkmode");
+    } else {
+        todoDiv.classList.add("todo");
+    }
+    
     //create li
     const newTodo = document.createElement('li');
     newTodo.innerText = todoInput.value
@@ -41,9 +47,9 @@ function addTodo(event){
         return;
     }
     todoList.appendChild(todoDiv);
-    //empty value
+    //clear input value after add to list
     todoInput.value ="";
-    //hide empty
+    //when you add something hide empty list notification
     if(todoList.childElementCount >= 1){
         empty.style.display = 'none';
     }
@@ -51,24 +57,24 @@ function addTodo(event){
 
 // delete function
     function deleteTodo(event){
-        
         if(event.target.classList.contains('trash-btn')){
-                event.target.parentElement.classList.add('fall');
-                
-                event.target.parentElement.addEventListener('transitionend', function(){
-                    event.target.parentElement.remove()
-                    if(todoList.childElementCount == 0){
-                        empty.style.display = 'flex';
-                    }
-                })
+            event.target.parentElement.classList.add('fall');
+            event.target.parentElement.addEventListener('transitionend', function(){
+                event.target.parentElement.remove()
+                if(todoList.childElementCount == 0){
+                    empty.style.display = 'flex';
+                }
+            });
         }
     }
+
 // checkmark
     function checkTodo(event){
         if(event.target.classList.contains('complete-btn')){
             event.target.parentElement.classList.add('completed');
         }
     }
+
 // filter to do
 function filterTodo(e){
     const todos = todoList.childNodes;
@@ -103,12 +109,16 @@ function filterTodo(e){
 //        
 //    }
 
+//dark mode
 function darkMode() {
     let body = document.body;
     body.classList.toggle("dark-mode");
     this.classList.toggle('fa-sun');
-    todoInput.classList.toggle('darkforminput');
-    todoButton.classList.toggle('darkforminput');
+    todoInput.classList.toggle('darkmode');
+    todoButton.classList.toggle('darkmode');
+    for(var i=0;i<todoList.children.length;i++){
+        todoList.children[i].classList.toggle('darkmode')
+    }
 }
 
 
