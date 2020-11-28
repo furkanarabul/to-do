@@ -1,12 +1,12 @@
 //selectors
-let todoInput = document.querySelector('.todo-input');
-let todoButton = document.querySelector('.todo-button');
-let todoList = document.querySelector('.todo-list');
-let headerInput = document.querySelector('.header-input');
-let darkModeButton = document.querySelector('.darkmodeBtn');
-let filterOption = document.querySelector('.filter-todo')
-let empty = document.querySelector('.empty');
-let body = document.body;
+const todoInput = document.querySelector('.todo-input');
+const todoButton = document.querySelector('.todo-button');
+const todoList = document.querySelector('.todo-list');
+const headerInput = document.querySelector('.header-input');
+const darkModeButton = document.querySelector('.darkmodeBtn');
+const filterOption = document.querySelector('.filter-todo')
+const empty = document.querySelector('.empty');
+const body = document.body;
 //event listener
 todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click',deleteTodo);
@@ -73,6 +73,10 @@ function addTodo(event){
         if(event.target.classList.contains('complete-btn')){
             event.target.parentElement.classList.add('completed');
             event.target.parentElement.style.order = todoList.children.length
+        }
+        //here uncheck completed item
+        if(event.target.parentElement.classList.contains('completed')){
+            console.log(event.target.parentElement.classList);
         }
     }
 
