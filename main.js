@@ -1,3 +1,10 @@
+//cssleri body dark mode içine yaz
+//enum a bak
+//template literalsa bak
+//add functionı kısalt
+//git commite bak
+
+
 //selectors
 const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
@@ -71,13 +78,9 @@ function addTodo(event){
 // checkmark
     function checkTodo(event){
         if(event.target.classList.contains('complete-btn')){
-            event.target.parentElement.classList.add('completed');
+            event.target.parentElement.classList.toggle('completed');
             event.target.parentElement.style.order = todoList.children.length
-        }
-        //here uncheck completed item
-        if(event.target.parentElement.classList.contains('completed')){
-            console.log(event.target.parentElement.classList);
-        }
+        } 
     }
 
 // filter to do
