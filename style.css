@@ -10,15 +10,14 @@ body {
   min-height: 100vh;
   transition: all 0.5s ease;
 }
-h1{
-  background: linear-gradient(124.11deg,#e7a28f 3.52%,#ecc79a 41.89%);
-  -webkit-text-fill-color:transparent;
-  -webkit-background-clip:text;
+h1 {
+  background: linear-gradient(124.11deg, #e7a28f 3.52%, #ecc79a 41.89%);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
-h1 .logo{
-  
+h1 .logo {
 }
 header {
   font-size: 1.5rem;
@@ -61,9 +60,9 @@ form button {
   outline: none;
 }
 form button:hover {
-  color: white;
   color: #e7a28f;
 }
+
 select {
   -webkit-appearance: none;
   -moz-appearence: none;
@@ -86,6 +85,16 @@ select:focus {
 .todo-list {
   min-width: 30%;
   list-style: none;
+}
+@media only screen and (max-width: 1280px) {
+  .todo-list {
+    min-width: 40%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .todo-list {
+    min-width: 80%;
+  }
 }
 .todo {
   margin: 1rem;
@@ -142,11 +151,11 @@ select:focus {
 .fa-check {
   color: green;
 }
-.darkmode .fa-trash{
-color:white;
+.darkmode .fa-trash {
+  color: white;
 }
-.darkmode .fa-check{
-color:white;
+.darkmode .fa-check {
+  color: white;
 }
 .deleteTxt {
   margin: 0 !important;
@@ -167,21 +176,21 @@ color:white;
   transition: all 0.5s ease;
   cursor: pointer;
 }
-.fa-moon:hover{
+.fa-moon:hover {
   transform: scale(1.05);
 }
 .darkmode {
   background: rgb(46, 46, 46) !important;
   color: white !important;
 }
-.darkmode .complete-btn{
-  background:transparent;
+.darkmode .complete-btn {
+  background: transparent;
 }
-.darkmode .trash-btn{
-  background:transparent;
+.darkmode .trash-btn {
+  background: transparent;
 }
 .darkmode .complete-btn:hover,
-.trash-btn:hover {
+.darkmode .trash-btn:hover {
   background: rgb(70, 70, 70);
   border-radius: 8px;
 }
@@ -226,9 +235,9 @@ color:white;
   font-size: 1.5rem;
   opacity: 0.2;
 }
-.is-flex{
+.is-flex {
   display: flex;
 }
-.is-hidden{
+.is-hidden {
   display: none;
 }
