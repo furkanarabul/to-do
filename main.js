@@ -5,10 +5,9 @@ let todoList = document.querySelector('.todo-list');
 let headerInput = document.querySelector('.header-input');
 let darkModeButton = document.querySelector('.darkmodeBtn');
 let filterOption = document.querySelector('.filter-todo')
-//var fired=false;
+let empty = document.querySelector('.empty');
 
-
-//event listeners
+//event listener
 todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click',deleteTodo);
 todoList.addEventListener('click',checkTodo);
@@ -37,9 +36,17 @@ function addTodo(event){
     trashButton.classList.add("trash-btn");
     todoDiv.appendChild(trashButton);
     //append todoDiv to ul
+    if(todoInput.value.length==0){
+        alert('Please write something');
+        return;
+    }
     todoList.appendChild(todoDiv);
     //empty value
     todoInput.value ="";
+    //hide empty
+    if(todoList.childElementCount >= 1){
+        empty.style.display = 'none';
+    }
 }
 
 // delete function
@@ -50,8 +57,10 @@ function addTodo(event){
                 
                 event.target.parentElement.addEventListener('transitionend', function(){
                     event.target.parentElement.remove()
+                    if(todoList.childElementCount == 0){
+                        empty.style.display = 'flex';
+                    }
                 })
-                removeLocalTodos(todo);
         }
     }
 // checkmark
