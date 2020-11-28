@@ -116,7 +116,7 @@ select:focus {
 }
 .trash-btn,
 .complete-btn {
-  background: white;
+  background: transparent;
   color: white;
   border: none;
   padding: 1rem;
