@@ -1,10 +1,3 @@
-//cssleri body dark mode içine yaz
-//enum a bak
-//template literalsa bak
-//add functionı kısalt
-//git commite bak
-
-
 //selectors
 const todoInput = document.querySelector('.todo-input');
 const todoButton = document.querySelector('.todo-button');
@@ -19,8 +12,6 @@ todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click',deleteTodo);
 todoList.addEventListener('click',checkTodo);
 darkModeButton.addEventListener('click',darkMode);
-filterOption.addEventListener('click', filterTodo)
-
 //functions
 function addTodo(event){
     //prevent submit
@@ -33,7 +24,6 @@ function addTodo(event){
     } else {
         todoDiv.classList.add("todo");
     }
-    
     //create li
     const newTodo = document.createElement('li');
     newTodo.innerText = todoInput.value
@@ -60,63 +50,31 @@ function addTodo(event){
     if(todoList.childElementCount >= 1){
         empty.style.display = 'none';
     }
-}
+};
 
 // delete function
-    function deleteTodo(event){
-        if(event.target.classList.contains('trash-btn')){
-            event.target.parentElement.classList.add('fall');
-            event.target.parentElement.addEventListener('transitionend', function(){
-                event.target.parentElement.remove()
-                if(todoList.childElementCount == 0){
-                    empty.style.display = 'flex';
-                }
-            });
-        }
+function deleteTodo(event){
+    if(event.target.classList.contains('trash-btn')){
+        event.target.parentElement.classList.add('fall');
+        event.target.parentElement.addEventListener('transitionend', function(){
+            event.target.parentElement.remove()
+            if(todoList.childElementCount == 0){
+                empty.style.display = 'flex';
+            }
+        });
     }
+};
 
 // checkmark
-    function checkTodo(event){
-        if(event.target.classList.contains('complete-btn')){
-            event.target.parentElement.classList.toggle('completed');
-            event.target.parentElement.style.order = todoList.children.length
-        } 
-    }
-
-// filter to do
-function filterTodo(e){
-    const todos = todoList.childNodes;
-    todos.forEach(function(todo){
-        switch (e.target.value) {
-            case "all":
-                todo.style.display ="flex";
-                break;
-            case "completed":
-                if(todo.classList.contains("completed")){
-                    todo.style.display = "flex";
-                } else {
-                    todo.style.display = "none";
-                }
+function checkTodo(event){
+    if(event.target.classList.contains('complete-btn')){
+        event.target.parentElement.classList.toggle('completed');
+        event.target.parentElement.style.order = todoList.children.length
+        if(!event.target.parentElement.classList.contains('completed')){
+            event.target.parentElement.style.order = '0'
         }
-    });
-}
-
-//removetype
-//    function removeType(event){
-//        if(!fired){
-//            fired=true;
-//            let deleteTxt = document.createElement('button');
-//            deleteTxt.innerHTML = '<i class="fas fa-trash"></i>';
-//            deleteTxt.classList.add('deleteTxt')
-//            headerInput.insertBefore(deleteTxt,headerInput.firstChild)
-//            console.log('1 oldu');        
-//        } else if(todoInput.value.length===0){
-//            console.log('0 oldu');
-//            deleteTxt.remove();
-//        }
-//        
-//    }
-
+    } 
+};
 //dark mode
 function darkMode() {
     let body = document.body;
