@@ -13,12 +13,12 @@ todoList.addEventListener('click',deleteTodo);
 todoList.addEventListener('click',checkTodo);
 darkModeButton.addEventListener('click',darkMode);
 //functions
-function addTodo(event){
+function addTodo(event) {
     //prevent submit
     event.preventDefault();
     //to-do div
     const todoDiv = document.createElement('div');
-    if(body.classList.contains('dark-mode')){
+    if (body.classList.contains('dark-mode')) {
         todoDiv.classList.add("todo");
         todoDiv.classList.add("darkmode");
     } else {
@@ -39,7 +39,7 @@ function addTodo(event){
     trashButton.classList.add("trash-btn");
     todoDiv.appendChild(trashButton);
     //append todoDiv to ul
-    if(todoInput.value.length==0){
+    if (todoInput.value.length==0) {
         alert('Please write something');
         return;
     }
@@ -47,13 +47,13 @@ function addTodo(event){
     //clear input value after add to list
     todoInput.value ="";
     //when you add something hide empty list notification
-    if(todoList.childElementCount >= 1){
+    if (todoList.childElementCount >= 1) {
         empty.style.display = 'none';
     }
 };
 
 // delete function
-function deleteTodo(event){
+function deleteTodo(event) {
     if(event.target.classList.contains('trash-btn')){
         event.target.parentElement.classList.add('fall');
         event.target.parentElement.addEventListener('transitionend', function(){
@@ -66,7 +66,7 @@ function deleteTodo(event){
 };
 
 // checkmark
-function checkTodo(event){
+function checkTodo(event) {
     if(event.target.classList.contains('complete-btn')){
         event.target.parentElement.classList.toggle('completed');
         event.target.parentElement.style.order = todoList.children.length
