@@ -21,6 +21,15 @@ h1 {
 header {
   font-size: 1.5rem;
 }
+a{
+  text-decoration: none;
+  color: inherit!important;
+  opacity: 0.2;
+}
+a:hover{
+  opacity: 1;
+  transition: all 0.5s ease;
+}
 .header-input {
   display: flex;
   border-radius: 18px;
@@ -242,4 +251,9 @@ select:focus {
 }
 .is-hidden {
   display: none;
+}
+.github{
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
 }
